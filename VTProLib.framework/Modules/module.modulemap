@@ -1,0 +1,6 @@
+framework module VTProLib {
+  umbrella header "VTProLib.h"
+
+  export *
+  module * { export * }
+}
