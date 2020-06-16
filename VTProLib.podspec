@@ -11,7 +11,7 @@ Pod::Spec.new do |spec|
   spec.author    = "yangweichao"
   spec.platform     = :ios, "8.0"
   spec.source_files = "VTProLib/**/*,{h,m}"
-  spec.source       = { :git => "https://github.com/viatom-dev/VTProLib.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/viatom-dev/VTProLib.git", :tag => "0.0.1" }
   spec.framework  = "VTProLib.framework"
   spec.requires_arc = true
   spec.frameworks = "CoreBluetooth", "Foundation"
