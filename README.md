@@ -2,7 +2,7 @@
 
 * ##### 1.1 Changelog
 
-    ##### [Changelog](!.\changeLog.md)
+    ##### [Changelog](!..\changeLog.md)
 
 * ##### 1.2 Functions
 
