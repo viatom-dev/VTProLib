@@ -48,6 +48,6 @@ iOS 8.0 or later.
 ```
 
 - measurements list object`<VTProLib/VTProObject.h>`
-- measurements detail object``<VTProLib/VTProDetailObject.h>`
+- measurements detail object`<VTProLib/VTProDetailObject.h>`
 - data analysis for all`<VTProLib/VTProFileParser.h>`
 - Mini-monitor data analysis`<VTProLib/VTProMiniObject.h>`
