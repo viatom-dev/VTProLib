@@ -2,7 +2,7 @@
 
 * ##### 1.1 Changelog
 
-    ##### [Changelog](!..\changeLog.md)
+    ##### [Changelog](https://github.com/viatom-dev/VTProLib/blob/master/changeLog.md)
 
 * ##### 1.2 Functions
 
