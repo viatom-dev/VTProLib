@@ -22,32 +22,32 @@ iOS 8.0 or later.
 
 - use `beginPing`, get the mode of Checkme Pro (Normal mode or Monitor mode. see: [VTTypesDef.h](https://github.com/viatom-dev/VTProLib/blob/master/LibUseDemo/LibUseDemo/VTProLib.framework/Headers/VTTypesDef.h))
 
-   ```objective-c
+```objective-c
 - (void)beginPing;
-   ```
+```
 
-   - get Checkme Pro info
+- get Checkme Pro info
 
 ```objective-c
 - (void)beginGetInfo;
 ```
 
-   - sync time
+- sync time
 ```objective-c
 - (void)beginSyncTime:(NSDate * _Nonnull)date;
 ```
 
-   - get measurements list
+- get measurements list
 ```objective-c
 - (void)beginReadFileListWithUser:(VTProUser * _Nullable)user fileType:(VTProFileType)type;
 ```
 
-   - get measurements  details (include Daily check/ECG Recorder/Sleep monitor)
+- get measurements  details (include Daily check/ECG Recorder/Sleep monitor)
 ```objective-c
 - (void)beginReadDetailFileWithObject:(VTProObject * _Nonnull)object fileType:(VTProFileType)type;
 ```
 
-   - measurements list object`<VTProLib/VTProObject.h>`
-   - measurements detail object``<VTProLib/VTProDetailObject.h>`
-   - data analysis for all`<VTProLib/VTProFileParser.h>`
-   - Mini-monitor data analysis`<VTProLib/VTProMiniObject.h>`
+- measurements list object`<VTProLib/VTProObject.h>`
+- measurements detail object``<VTProLib/VTProDetailObject.h>`
+- data analysis for all`<VTProLib/VTProFileParser.h>`
+- Mini-monitor data analysis`<VTProLib/VTProMiniObject.h>`
