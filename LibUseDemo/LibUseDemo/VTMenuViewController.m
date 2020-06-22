@@ -15,6 +15,7 @@
 
 @interface VTMenuViewController ()<UITableViewDelegate,UITableViewDataSource,VTProCommunicateDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *miniDescLab;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) NSArray *funcArray;
 
@@ -54,9 +55,9 @@
 - (void)connectState:(NSNotification *)notification{
     if ([notification.object intValue] == 1) {
         [[VTProCommunicate sharedInstance] beginPing];
-        self.title = @"已连接";
+        self.title = @"Connected";
     }else{
-        self.title = @"已断开连接";
+        self.title = @"Disconnected";
     }
     
 }
@@ -206,11 +207,24 @@
 }
 
 
+- (void)realTimeCallBackWithObject:(VTProMiniObject *)object{
+    if (_state == VTProStateMinimoniter) {
+        _miniDescLab.text = [object description];
+    }
+}
+
+
 - (void)currentStateOfPeripheral:(VTProState)state{
     if (state == VTProStateMinimoniter) {
 //        DLog(@"Minimonitor mode. If you want to import data which at peripheral into your phone, please exit minimonitor mode, and click 'To mobile' button.");
+         [_miniDescLab setHidden:NO];
+         [_tableView setHidden:YES];
     }else{
 //        DLog(@"you can import data which at peripheral into your phone.");
+        
+        _funcArray = @[@"Get info",@"Sync time",@"Read UserList",@"Daily Check",@"ECG Recorder",@"Pulse Oximeter",@"Blood Pressure",@"Blood Glucose",@"Thermometer",@"Sleep Monitor",@"Pedometer"];
+        [_miniDescLab setHidden:YES];
+        [_tableView setHidden:NO];
     }
     _state = state;
 }

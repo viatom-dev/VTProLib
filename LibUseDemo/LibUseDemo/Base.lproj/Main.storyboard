@@ -63,6 +63,13 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="3gF-hu-enN"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yq9-VF-hI4">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
@@ -78,6 +85,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="9JR-Ye-tcy"/>
                     <connections>
+                        <outlet property="miniDescLab" destination="Yq9-VF-hI4" id="gNV-vo-G0E"/>
                         <outlet property="tableView" destination="c0K-Ky-fcQ" id="5gl-Vx-eiU"/>
                         <segue destination="j8C-ne-4CW" kind="push" identifier="gotoVTInfoViewController" id="Mhr-0W-9FR"/>
                         <segue destination="KPj-5Q-wys" kind="push" identifier="gotoVTUserListViewController" id="o3B-x5-wxo"/>
@@ -86,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="842"/>
+            <point key="canvasLocation" x="560.79999999999995" y="841.52923538230891"/>
         </scene>
         <!--User List-->
         <scene sceneID="Nbo-JI-qIC">
