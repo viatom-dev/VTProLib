@@ -1,3 +1,12 @@
+# 2020/6/29
+## Checkme Pro SDK v1.1
+  1. 减少SDK依赖的外部参数，现在仅需要传入当前连接外设
+  2. 优化Demo连接流程
+
+## Checkme Pro SDK v1.1
+  1. Optimize .framework
+  2. Optimize Demo connection process
+
 #  2020/6/19
 ## Checkme Pro SDK v1.0
   1. 匹配当前Pro所有功能
