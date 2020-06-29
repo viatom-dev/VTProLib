@@ -62,6 +62,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)currentStateOfPeripheral:(VTProState)state;
 
 
+/// @brief read current peripheral's rssi
+/// @param RSSI rssi
+- (void)updatePeripheralRSSI:(NSNumber *)RSSI;
+
+/// @brief CBService & CBCharacteristic Deploy result . If  completed == YES, you can use request command.
+/// @param completed result
+- (void)serviceDeployed:(BOOL)completed;
+
+
 @end
 
 
@@ -71,9 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief This peripheral is currently connected. Need to be set after connection
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
-/// @brief This characteristic is a writable characteristic of the currently connected peripheral. Need to be set after connection
-@property (nonatomic, strong) CBCharacteristic *txCharacteristic;
-
 /// @brief current file been read or written
 @property (nonatomic, strong) VTProFileToRead *curReadFile;
 
@@ -81,12 +87,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (VTProCommunicate *)sharedInstance;
 
-#pragma mark -- receive
-/// @brief receive data from periphral
-/// @param data data from CBPeripheralDelegate -- didUpdateValueForCharacteristic 
-- (void)didReceiveData:(NSData *)data;
 
-#pragma mark -- request
+#pragma mark -- monitor peripheral RSSI
+- (void)readRSSI;
+
+#pragma mark -- request data from peripheral
 
 /// @brief Start ping with peripheral.  callback  "currentStateOfPeripheral:"
 - (void)beginPing;

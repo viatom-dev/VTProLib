@@ -134,20 +134,20 @@
             NSArray *arr = [VTProFileParser parseEcgList_WithFileData:fileData.fileData];
             [self.dataList addObjectsFromArray:arr];
             [_listTableView reloadData];
-            [SVProgressHUD dismiss];
         }else{
             DLog(@"Error %ld", (long)fileData.enLoadResult);
         }
-        
+        [SVProgressHUD dismiss];
     }else if (fileData.fileType == VTProFileTypeSpO2List) {
         if (fileData.enLoadResult == VTProFileLoadResultSuccess) {
             NSArray *arr = [VTProFileParser parseSPO2List_WithFileData:fileData.fileData];
             [self.dataList addObjectsFromArray:arr];
             [_listTableView reloadData];
-            [SVProgressHUD dismiss];
+            
         }else{
             DLog(@"Error %ld", (long)fileData.enLoadResult);
         }
+        [SVProgressHUD dismiss];
     }else if (fileData.fileType == VTProFileTypeBpList) {
         if (fileData.enLoadResult == VTProFileLoadResultSuccess) {
             NSArray *arr = [VTProFileParser parseNIBPList_WithFileData:fileData.fileData];

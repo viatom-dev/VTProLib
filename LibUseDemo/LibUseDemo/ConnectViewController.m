@@ -7,9 +7,10 @@
 //
 
 #import "ConnectViewController.h"
-#import "BTUtils.h"
+#import "VTBLEUtils.h"
+#import <VTProLib/VTProCommunicate.h>
 
-@interface ConnectViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ConnectViewController ()<UITableViewDelegate,UITableViewDataSource, VTBLEUtilsDelegate, VTProCommunicateDelegate>
 
 @property (nonatomic, strong) NSMutableArray *periArray;
 @property (nonatomic, strong) UITableView *tableView;
@@ -22,11 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView reloadData];
-    [[BTUtils GetInstance] openBT];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(findPeriphral:) name:FINDPERIPHRAL object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBLPowerOnNtf:) name:BLE_ON object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onBLPowerOffNtf:) name:BLE_OFF object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectState:) name:CONNECTED object:nil];
+    [VTBLEUtils sharedInstance].delegate = self;
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -40,52 +37,39 @@
 }
 
 
+#pragma mark --  ble
 
--(void)onBLPowerOnNtf:(NSNotification *)ntf
-{
-    [[BTUtils GetInstance] beginScan];
+- (void)updateBleState:(VTBLEState)state{
+    if (state == VTBLEStatePoweredOn) {
+        [[VTBLEUtils sharedInstance] startScan];
+    }
 }
 
-//
--(void)onBLPowerOffNtf:(NSNotification *)ntf
-{
+- (void)didDiscoverDevice:(VTDevice *)device{
+    [self.periArray addObject:device];
+    [self.tableView reloadData];
+}
+
+- (void)didConnectedDevice:(VTDevice *)device{
+    [VTProCommunicate sharedInstance].peripheral = device.rawPeripheral;
+    [VTProCommunicate sharedInstance].delegate = self;
+}
+
+/// @brief This device has been disconnected. Note: If error == nil ，user manually disconnect.
+- (void)didDisconnectedDevice:(VTDevice *)device andError:(NSError *)error{
     
 }
 
 
--(void)connectState:(NSNotification *)notification
-{
-    if ([notification.object intValue] == 1) {
-        [self showAlertWithTitle:@"Connected" message:@"" handler:^(UIAlertAction *action) {
-            [self performSegueWithIdentifier:@"presentViewController" sender:nil];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"connectSuccess" object:nil];
-            
-        }];
-    }
+- (void)serviceDeployed:(BOOL)completed{
+    [self showAlertWithTitle:@"Good !!!" message:@"Start work" handler:^(UIAlertAction *action) {
+        [self performSegueWithIdentifier:@"presentViewController" sender:nil];
+
+    }];
 }
 
--(void)findPeriphral:(NSNotification *)ntf
-{
-    NSDictionary *usrInfo  = [ntf userInfo];
-    CBPeripheral *periphral = [usrInfo objectForKey:KEYPERIPHRAL];
-    NSString *BLEname =  usrInfo[@"BLEName"];
-    if(![BLEname isKindOfClass:[NSNull class]]&& ![BLEname isEqualToString:@""] && ![periphral.name isEqualToString:BLEname])
-    {
-        [periphral setValue:BLEname forKey:@"name"];
-    }
-  
-    if ([[periphral name] hasPrefix:@"Checkme"]) {//设备蓝牙名
-        NSMutableArray *tempArr = [self.periArray mutableCopy];
-        for (CBPeripheral *lp in tempArr) {
-            if ([lp.name isEqualToString:periphral.name]) {
-                [self.periArray removeObject:lp];
-            }
-            
-        }
-        [self.periArray addObject:periphral];
-        [self.tableView reloadData];
-    }
-}
+
+
 
 - (NSMutableArray *)periArray{
     if (!_periArray) {
@@ -128,24 +112,27 @@
 }
 
 
+#pragma mark --  tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.periArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identifier = @"identifier";
+    static NSString *identifier = @"deviceList";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     }
-    CBPeripheral *p = self.periArray[indexPath.row];
-    cell.textLabel.text = [p name];
+    VTDevice *device = self.periArray[indexPath.row];
+    cell.textLabel.text = device.rawPeripheral.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",device.RSSI];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    CBPeripheral *p = self.periArray[indexPath.row];
-    [[BTUtils GetInstance] connectToPeripheral:p];
+    VTDevice *device = self.periArray[indexPath.row];
+    [[VTBLEUtils sharedInstance] stopScan];
+    [[VTBLEUtils sharedInstance] connectToDevice:device];
 }
 
 

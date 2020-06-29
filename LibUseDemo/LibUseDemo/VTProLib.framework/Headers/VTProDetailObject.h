@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief result for ecg
 @property (nonatomic, copy) NSString *ecgResult;
 
-/// @brief
+/// @brief duration 
 @property (nonatomic, assign) u_int timeLength;
 
 @property (nonatomic, assign) FilterKind_t enFilterKind;

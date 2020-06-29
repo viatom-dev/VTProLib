@@ -11,7 +11,6 @@
 #import "VTInfoViewController.h"
 #import "VTUserListViewController.h"
 #import "VTDataListViewController.h"
-#import "BTUtils.h"
 
 @interface VTMenuViewController ()<UITableViewDelegate,UITableViewDataSource,VTProCommunicateDelegate>
 
@@ -45,22 +44,12 @@
     _funcArray = @[@"Get info",@"Sync time",@"Read UserList",@"Daily Check",@"ECG Recorder",@"Pulse Oximeter",@"Blood Pressure",@"Blood Glucose",@"Thermometer",@"Sleep Monitor",@"Pedometer"];
     [VTProCommunicate sharedInstance].delegate = self;
     [[VTProCommunicate sharedInstance] beginPing];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectState:) name:CONNECTED object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 }
 
-- (void)connectState:(NSNotification *)notification{
-    if ([notification.object intValue] == 1) {
-        [[VTProCommunicate sharedInstance] beginPing];
-        self.title = @"Connected";
-    }else{
-        self.title = @"Disconnected";
-    }
-    
-}
 
 
 - (IBAction)getInfo:(id)sender {

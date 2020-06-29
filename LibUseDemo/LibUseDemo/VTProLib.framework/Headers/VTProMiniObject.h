@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/// @brief Minimonitor  Packet data   --  1 pcs  /40ms.      A part of data not support at current version. 
+/// @brief Minimonitor  Packet data   --  1 pcs  /40ms.    A part of data not support at current version. 
 @interface VTProMiniObject : NSObject
 
 /// @brief ECG data with real-time data

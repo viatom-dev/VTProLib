@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6504C42B24AA0479005CE0CF /* VTBLEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504C42724AA0479005CE0CF /* VTBLEUtils.m */; };
+		6504C42C24AA0479005CE0CF /* VTDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504C42824AA0479005CE0CF /* VTDevice.m */; };
 		656DE86A249B80B60024E613 /* VTDataListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656DE869249B80B60024E613 /* VTDataListViewController.m */; };
 		656DE876249B8E980024E613 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 656DE86C249B8E980024E613 /* SVRadialGradientLayer.m */; };
 		656DE877249B8E980024E613 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 656DE86F249B8E980024E613 /* SVProgressAnimatedView.m */; };
@@ -20,8 +22,6 @@
 		659E715C2195664900B8070D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659E715B2195664900B8070D /* Assets.xcassets */; };
 		659E715F2195664900B8070D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659E715D2195664900B8070D /* LaunchScreen.storyboard */; };
 		659E71622195664900B8070D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 659E71612195664900B8070D /* main.m */; };
-		659E71852195681100B8070D /* BTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 659E71812195681000B8070D /* BTUtils.m */; };
-		659E71862195681100B8070D /* UARTPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = 659E71842195681100B8070D /* UARTPeripheral.m */; };
 		659E718921956B0B00B8070D /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659E718721956B0B00B8070D /* ConnectViewController.m */; };
 		6B36CED22496186900B4E869 /* VTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B36CED12496186900B4E869 /* VTMenuViewController.m */; };
 		6B36CED52496787D00B4E869 /* VTInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B36CED42496787D00B4E869 /* VTInfoViewController.m */; };
@@ -29,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6504C42724AA0479005CE0CF /* VTBLEUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTBLEUtils.m; sourceTree = "<group>"; };
+		6504C42824AA0479005CE0CF /* VTDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTDevice.m; sourceTree = "<group>"; };
+		6504C42924AA0479005CE0CF /* VTBLEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTBLEUtils.h; sourceTree = "<group>"; };
+		6504C42A24AA0479005CE0CF /* VTDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTDevice.h; sourceTree = "<group>"; };
 		656DE868249B80B60024E613 /* VTDataListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VTDataListViewController.h; sourceTree = "<group>"; };
 		656DE869249B80B60024E613 /* VTDataListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VTDataListViewController.m; sourceTree = "<group>"; };
 		656DE86C249B8E980024E613 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
@@ -51,10 +55,6 @@
 		659E715E2195664900B8070D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		659E71602195664900B8070D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		659E71612195664900B8070D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		659E71812195681000B8070D /* BTUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTUtils.m; sourceTree = "<group>"; };
-		659E71822195681000B8070D /* BTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTUtils.h; sourceTree = "<group>"; };
-		659E71832195681100B8070D /* UARTPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UARTPeripheral.h; sourceTree = "<group>"; };
-		659E71842195681100B8070D /* UARTPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UARTPeripheral.m; sourceTree = "<group>"; };
 		659E718721956B0B00B8070D /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
 		659E718821956B0B00B8070D /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
 		6B36CED02496186900B4E869 /* VTMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VTMenuViewController.h; sourceTree = "<group>"; };
@@ -77,6 +77,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6504C42624AA0479005CE0CF /* VTBLE */ = {
+			isa = PBXGroup;
+			children = (
+				6504C42724AA0479005CE0CF /* VTBLEUtils.m */,
+				6504C42824AA0479005CE0CF /* VTDevice.m */,
+				6504C42924AA0479005CE0CF /* VTBLEUtils.h */,
+				6504C42A24AA0479005CE0CF /* VTDevice.h */,
+			);
+			path = VTBLE;
+			sourceTree = "<group>";
+		};
 		654F2B742490BE92007A5581 /* SDK-SourceCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,11 +132,8 @@
 		659E71512195664800B8070D /* LibUseDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6504C42624AA0479005CE0CF /* VTBLE */,
 				654F2B742490BE92007A5581 /* SDK-SourceCode */,
-				659E71822195681000B8070D /* BTUtils.h */,
-				659E71812195681000B8070D /* BTUtils.m */,
-				659E71832195681100B8070D /* UARTPeripheral.h */,
-				659E71842195681100B8070D /* UARTPeripheral.m */,
 				659E71522195664800B8070D /* AppDelegate.h */,
 				659E71532195664800B8070D /* AppDelegate.m */,
 				6B36CED02496186900B4E869 /* VTMenuViewController.h */,
@@ -224,15 +232,15 @@
 				6B36CED22496186900B4E869 /* VTMenuViewController.m in Sources */,
 				659E718921956B0B00B8070D /* ConnectViewController.m in Sources */,
 				656DE878249B8E980024E613 /* SVProgressHUD.m in Sources */,
-				659E71862195681100B8070D /* UARTPeripheral.m in Sources */,
 				6B36CED52496787D00B4E869 /* VTInfoViewController.m in Sources */,
 				659E71622195664900B8070D /* main.m in Sources */,
+				6504C42C24AA0479005CE0CF /* VTDevice.m in Sources */,
+				6504C42B24AA0479005CE0CF /* VTBLEUtils.m in Sources */,
 				656DE86A249B80B60024E613 /* VTDataListViewController.m in Sources */,
 				6B36CED82496789300B4E869 /* VTUserListViewController.m in Sources */,
 				656DE879249B8E980024E613 /* SVIndefiniteAnimatedView.m in Sources */,
 				656DE877249B8E980024E613 /* SVProgressAnimatedView.m in Sources */,
 				659E71542195664800B8070D /* AppDelegate.m in Sources */,
-				659E71852195681100B8070D /* BTUtils.m in Sources */,
 				656DE876249B8E980024E613 /* SVRadialGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
