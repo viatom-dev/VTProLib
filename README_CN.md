@@ -12,7 +12,7 @@
    &nbsp;&nbsp;&nbsp; iOS 8.0及以上
 
 #### 3. 快速使用
-首先，配置VTProCommunicate的属性peripheral&txCharacteristic，即可以正常通信。
+首先，配置VTProCommunicate的属性peripheral，sdk会进行服务和特征配置，如果回调方法`serviceDeployed:`返回YES，即可以正常通信。
 然后，在需要接收返回的地方设置VTProCommunicate的delegate，即可以正常接收各类请求回调。
 之后，可与checkme pro（以下简称pro）交互。
 
@@ -44,6 +44,10 @@
 - 写入数据到pro，一般用于升级语言包和软件包
 ```
 - (void)beginWriteFileWithFileName:(NSString * _Nonnull)fileName fileType:(VTProFileType)type andFileData:(NSData * _Nonnull)fileData;
+```
+- 监听当前外设的RSSI值
+```
+- (void)readRSSI;
 ```
 
 - 所有返回列表数据参考类`<VTProLib/VTProObject.h>`
