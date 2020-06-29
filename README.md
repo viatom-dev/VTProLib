@@ -16,7 +16,8 @@ VTProLib is iOS lib Viatom Checkme Pro. There are two part in this lib: Communic
 iOS 8.0 or later.
 
 #### 3. Quick Start
-1. Config the `peripheral&txCharacteristic` property of `VTProCommunicate`. NECESSAYR!
+1. Config the `peripheral` property of `VTProCommunicate`.If the callback method
+that `serviceDeployed:` returns YES,  NECESSAYR!
 
 2. Set `delegate` for `VTProCommunicate` any where you want get callback. At this step, you are able to communicate.
 
@@ -45,6 +46,10 @@ iOS 8.0 or later.
 - get measurements  details (include Daily check/ECG Recorder/Sleep monitor)
 ```objective-c
 - (void)beginReadDetailFileWithObject:(VTProObject * _Nonnull)object fileType:(VTProFileType)type;
+```
+- monitor peripheral RSSI
+```objective-c
+- (void)readRSSI;
 ```
 
 - measurements list object`<VTProLib/VTProObject.h>`
