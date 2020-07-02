@@ -64,7 +64,6 @@
 - (void)serviceDeployed:(BOOL)completed{
     [self showAlertWithTitle:@"Good !!!" message:@"Start work" handler:^(UIAlertAction *action) {
         [self performSegueWithIdentifier:@"presentViewController" sender:nil];
-
     }];
 }
 

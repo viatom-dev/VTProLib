@@ -27,7 +27,7 @@
 + (NSArray <VTProUser *>*)parseUserList_WithFileData:(NSData *)data;
 
 /**
- *  @brief parse CheckmePro infomation
+ *  @brief parse CheckmePro information
  *
  *  @param data the data that get from peripheral
  *
