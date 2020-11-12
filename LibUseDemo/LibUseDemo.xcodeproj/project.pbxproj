@@ -397,6 +397,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LibUseDemo/SDK",
 				);
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.viatom.LibUseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -423,6 +424,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LibUseDemo/SDK",
 				);
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.viatom.LibUseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
