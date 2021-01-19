@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VTUserListViewController : UIViewController
 
-@property (nonatomic, strong) NSArray <VTProUser *>*userArray;
+@property (nonatomic, strong) NSArray *userArray;
 
 @end
 

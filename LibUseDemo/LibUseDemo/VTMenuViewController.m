@@ -28,6 +28,7 @@
 {
     VTProInfo *_info;
     NSArray <VTProUser *>*_userList;
+    NSArray <VTProXuser *>*_xuserList;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -41,7 +42,7 @@
     _state = VTProStateSyncData;
     [_tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     // dataType from 3 to 11
-    _funcArray = @[@"Get info",@"Sync time",@"Read UserList",@"Daily Check",@"ECG Recorder",@"Pulse Oximeter",@"Blood Pressure",@"Blood Glucose",@"Thermometer",@"Sleep Monitor",@"Pedometer"];
+    _funcArray = @[@"Get info",@"Sync time",@"Read UserList",@"Daily Check",@"ECG Recorder",@"Pulse Oximeter",@"Blood Pressure",@"Blood Glucose",@"Thermometer",@"Sleep Monitor",@"Pedometer", @"Read XuserList", @"Quick check"];
     [VTProCommunicate sharedInstance].delegate = self;
     [[VTProCommunicate sharedInstance] beginPing];
 }
@@ -74,17 +75,31 @@
     [[VTProCommunicate sharedInstance] beginReadFileListWithUser:nil fileType:VTProFileTypeUserList];
 }
 
+- (void)readXuserList{
+    if (_state == VTProStateMinimoniter) {
+        return;
+    }
+    [[VTProCommunicate sharedInstance] beginReadFileListWithUser:nil fileType:VTProFileTypeXuserList];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"gotoVTInfoViewController"]) {
         VTInfoViewController *vc = segue.destinationViewController;
         vc.proInfo = _info;
     }else if ([segue.identifier isEqualToString:@"gotoVTUserListViewController"]) {
         VTUserListViewController *vc = segue.destinationViewController;
-        vc.userArray = _userList;
+        if (_event == 2) {
+            vc.userArray = _userList;
+        }else{
+            vc.userArray = _xuserList;
+        }
     }else if ([segue.identifier isEqualToString:@"gotoVTDataListViewController"]) {
         VTDataListViewController *vc = segue.destinationViewController;
-        vc.userList = _userList;
         vc.dataType = _event;
+        vc.userList = _userList;
+        if (_event == 12) {
+            vc.userList = _xuserList;
+        }
         vc.title = _funcArray[_event];
     }
 }
@@ -142,8 +157,23 @@
         case 5:
         case 8:
         case 9:
+        {
             _userList = nil;
+            _xuserList = nil;
             [self performSegueWithIdentifier:@"gotoVTDataListViewController" sender:nil];
+        }
+            break;
+        case 11:
+            [self readXuserList];
+            break;
+        case 12:
+        {
+            if (_xuserList) {
+                [self performSegueWithIdentifier:@"gotoVTDataListViewController" sender:nil];
+            }else{
+                [self readXuserList];
+            }
+        }
             break;
         default:
             break;
@@ -193,6 +223,18 @@
             }
         }
     }
+    
+    if (fileData.fileType == VTProFileTypeXuserList) {
+        if (fileData.enLoadResult == VTProFileLoadResultSuccess) {
+            NSArray *userList = [VTProFileParser parseXuserList_WithFileData:fileData.fileData];
+            _xuserList = userList;
+            if (_event == 11) {
+                [self performSegueWithIdentifier:@"gotoVTUserListViewController" sender:nil];
+            }else{
+                [self performSegueWithIdentifier:@"gotoVTDataListViewController" sender:nil];
+            }
+        }
+    }
 }
 
 
@@ -211,7 +253,7 @@
     }else{
 //        DLog(@"you can import data which at peripheral into your phone.");
         
-        _funcArray = @[@"Get info",@"Sync time",@"Read UserList",@"Daily Check",@"ECG Recorder",@"Pulse Oximeter",@"Blood Pressure",@"Blood Glucose",@"Thermometer",@"Sleep Monitor",@"Pedometer"];
+        _funcArray = @[@"Get info",@"Sync time",@"Read UserList",@"Daily Check",@"ECG Recorder",@"Pulse Oximeter",@"Blood Pressure",@"Blood Glucose",@"Thermometer",@"Sleep Monitor",@"Pedometer", @"Read XuserList", @"Quick check"];
         [_miniDescLab setHidden:YES];
         [_tableView setHidden:NO];
     }

@@ -169,4 +169,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
+/// @brief 支持checkmePro 同心管家
+@interface VTProSpc : VTProObject
+//通用
+@property (nonatomic, assign) u_char funcMode;
+@property (nonatomic, assign) u_short selectFunc;
+@property (nonatomic, copy) NSString *note;
+//心电
+@property (nonatomic, assign) LeadKind_t enLeadKind;
+@property (nonatomic, assign) u_short hrValue;
+@property (nonatomic, assign) u_short qrsValue;
+@property (nonatomic, assign) u_short stValue;
+@property (nonatomic, assign) NSString *ecgResult;
+@property (nonatomic, assign) PassKind_t ecgEmoj;
+@property (nonatomic, assign) u_short qtValue;
+@property (nonatomic, assign) u_short qtcValue;
+@property (nonatomic, assign) u_char waveMark;
+// 血氧
+@property (nonatomic, assign) u_char measureMode;
+@property (nonatomic, assign) u_char spo2Value;
+@property (nonatomic, assign) u_short prValue;
+@property (nonatomic, assign) double piValue;
+@property (nonatomic, assign) PassKind_t spo2Emoj;
+// 体温
+@property (nonatomic, strong) VTProTm *temp;
+// 血压
+@property (nonatomic, assign) u_char measureFrom;
+@property (nonatomic, assign) u_short sysValue;
+@property (nonatomic, assign) u_char avgValue;
+@property (nonatomic, assign) u_char diaValue;
+@property (nonatomic, assign) u_char irregular;
+@property (nonatomic, assign) u_short bpprValue;
+// 血糖
+@property (nonatomic, assign) u_char bgFrom;
+@property (nonatomic, assign) double sugerValue;
+
+
+@end
+
+
 NS_ASSUME_NONNULL_END

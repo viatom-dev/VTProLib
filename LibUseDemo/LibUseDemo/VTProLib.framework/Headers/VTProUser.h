@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// @brief user's name'
-@property (nonatomic, strong) NSString *userName;
+@property (nonatomic, copy) NSString *userName;
 
 /// @brief userID - Used to read files
 @property (nonatomic, assign) u_char userID;
@@ -44,6 +44,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief iconID - you can get or set icon for the user with this iconID
 @property (nonatomic, assign) u_char iconID;
 
+
+@end
+
+/// @brief 支持checkmePro 同心管家
+@interface VTProXuser : VTProUser
+
+/**
+ iconID && age 不支持
+ */
+
+@property (nonatomic, copy) NSString *patientID;
+
+@property (nonatomic, assign) int unit;
 
 @end
 

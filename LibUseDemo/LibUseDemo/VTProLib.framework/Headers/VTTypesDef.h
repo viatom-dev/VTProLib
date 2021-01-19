@@ -27,8 +27,8 @@ typedef enum : NSUInteger {
 typedef enum : u_char {
     LeadKindHand = 0x01,
     LeadKindChest = 0x02,
-    LeadKindWire = 0x03,
-    LeadKindWire12 = 0x04,
+    LeadKindWire1 = 0x03,
+    LeadKindWire2 = 0x04,
 } LeadKind_t;
 
 typedef enum{
@@ -69,6 +69,8 @@ typedef enum : u_char {
     VTProFileTypeTmList = 0x06,
     VTProFileTypeSlmList = 0x04,
     VTProFileTypePedList = 0x0B,
+    VTProFileTypeXuserList = 0x0E,
+    VTProFileTypeSpcList = 0x0F,
     /// @brief detail type
     VTProFileTypeEcgDetail = 0x07,
     VTProFileTypeEcgVoice = 0x08,

@@ -54,7 +54,7 @@
     return _dataList;
 }
 
-- (void)setUserList:(NSArray<VTProUser *> *)userList{
+- (void)setUserList:(NSArray *)userList{
     _userList = userList;
     for (int i = 0; i < userList.count; i ++) {
         VTDataList *list = [[VTDataList alloc] init];
@@ -84,7 +84,7 @@
         [_listTableView reloadData];
         return;
     }
-    VTProUser *user = nil;
+    id user = nil;
     if (_userList) {
         user = _userList[_index];
     }
@@ -93,24 +93,26 @@
 
 - (VTProFileType)dataTypeMapToFileType{
     switch (_dataType) {
-       case 3:
-           return VTProFileTypeDlcList;
-       case 4:
-           return VTProFileTypeEcgList;
-       case 5:
-           return VTProFileTypeSpO2List;
-       case 6:
-           return VTProFileTypeBpList;
-       case 7:
-           return VTProFileTypeBgList;
-       case 8:
-           return VTProFileTypeTmList;
-       case 9:
-           return VTProFileTypeSlmList;
-       case 10:
-           return VTProFileTypePedList;
-       default:
-           break;
+        case 3:
+            return VTProFileTypeDlcList;
+        case 4:
+            return VTProFileTypeEcgList;
+        case 5:
+            return VTProFileTypeSpO2List;
+        case 6:
+            return VTProFileTypeBpList;
+        case 7:
+            return VTProFileTypeBgList;
+        case 8:
+            return VTProFileTypeTmList;
+        case 9:
+            return VTProFileTypeSlmList;
+        case 10:
+            return VTProFileTypePedList;
+        case 12:
+            return VTProFileTypeSpcList;
+        default:
+            break;
     }
     return VTProFileTypeNone;
 }
@@ -209,6 +211,16 @@
             DLog(@"Detail Error %ld", (long)fileData.enLoadResult);
         }
         [SVProgressHUD dismiss];
+    }else if (fileData.fileType == VTProFileTypeSpcList) {
+        if (fileData.enLoadResult == VTProFileLoadResultSuccess) {
+            NSData *data = [fileData.fileData subdataWithRange:NSMakeRange(10, fileData.fileSize - 10)];
+            NSArray *arr = [VTProFileParser parseRecList_WithFileData:data];
+            VTDataList *list = _dataList[_index];
+            [list.list addObjectsFromArray:arr];
+            [_dataList replaceObjectAtIndex:_index withObject:list];
+        }
+        _index ++ ;
+        [self downloadList:_index];
     }
 }
 

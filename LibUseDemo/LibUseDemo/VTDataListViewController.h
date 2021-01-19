@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VTDataListViewController : UIViewController
 
-@property (nonatomic, copy) NSArray <VTProUser*> *userList;
+@property (nonatomic, copy) NSArray *userList;
 
 @property (nonatomic, assign) NSInteger dataType;
 

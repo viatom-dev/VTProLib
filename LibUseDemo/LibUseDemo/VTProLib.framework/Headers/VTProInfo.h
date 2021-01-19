@@ -41,4 +41,7 @@
 /// @brief peripheral's file version
 @property (nonatomic, copy) NSString *fileVer;
 
+
+@property (nonatomic, copy) NSString *branchCode;
+
 @end

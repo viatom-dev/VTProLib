@@ -27,7 +27,7 @@
 + (NSArray <VTProUser *>*)parseUserList_WithFileData:(NSData *)data;
 
 /**
- *  @brief parse CheckmePro information
+ *  @brief parse CheckmePro infomation
  *
  *  @param data the data that get from peripheral
  *
@@ -151,4 +151,11 @@
  *  @return ecgResult strings
  */
 + (NSString *)parseECG_innerData_ecgResultDescribWith:(NSString *)ecgResultDescrib;
+
+
+/// @brief 支持checkmePro 同心管家
++ (NSArray <VTProXuser *>*)parseXuserList_WithFileData:(NSData *)data;
++ (NSArray <VTProSpc *>*)parseRecList_WithFileData:(NSData *)data;
+
+
 @end

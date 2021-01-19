@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)setUserArray:(NSArray<VTProUser *> *)userArray{
+- (void)setUserArray:(NSArray *)userArray{
     _userArray = userArray;
 }
 
@@ -34,19 +34,25 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    
-    VTProUser *user = _userArray[indexPath.row];
-    NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"VTProLibBundle" ofType:@"bundle"];
-    NSBundle *imageBundle = [NSBundle bundleWithPath:imagePath];
-    UIImage *image = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:[NSString stringWithFormat:@"ico%d", user.iconID] ofType:@"png"]];
-    CGSize imageSize = CGSizeMake(30, 30);
-    UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0);
-    CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
-    [image drawInRect:imageRect];
-    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsGetImageFromCurrentImageContext();
-    cell.textLabel.text = user.userName;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",user.userID];
+    id u = _userArray[indexPath.row];
+    if ([u isMemberOfClass:[VTProUser class]]) {
+        VTProUser *user = u;
+        NSString *imagePath = [[NSBundle mainBundle] pathForResource:@"VTProLibBundle" ofType:@"bundle"];
+        NSBundle *imageBundle = [NSBundle bundleWithPath:imagePath];
+        UIImage *image = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:[NSString stringWithFormat:@"ico%d", user.iconID] ofType:@"png"]];
+        CGSize imageSize = CGSizeMake(30, 30);
+        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0);
+        CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
+        [image drawInRect:imageRect];
+        cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsGetImageFromCurrentImageContext();
+        cell.textLabel.text = user.userName;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d",user.userID];
+    }else{
+        VTProXuser *xuser = u;
+        cell.textLabel.text = xuser.userName;
+        cell.detailTextLabel.text = xuser.patientID;
+    }
     return cell;
 }
 
