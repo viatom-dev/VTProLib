@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief blood pressure value
 @property (nonatomic, assign) u_char bpValue;
 
-/// @brief Is there a voice to download.   
+/// @brief Is there a voice to download.
 @property (nonatomic, assign) BOOL haveVoice;
 
 @end
@@ -112,11 +112,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VTProTm : VTProObject
 
 /// @brief temperature   ---  celsius  It  map  to  fahrenheit  by formula ----  tempValue * 1.8 + 32
+/// 温度 存储值为温度值*10，单位为℃，此处使用整数表示，如38.5℃则为385
 @property (nonatomic, assign) double tempValue;
 
 /// @brief measure mode  ---  0 mainly forehead temperature or body temperature    1 other temperature
+///  测量方式  0:体温 1:物体温度
 @property (nonatomic, assign) u_char measureMode;
 
+/// @brief The result map to emoji :    0 - smile    1 - cry     2 - null
+/// 体温笑脸/哭脸  0是笑脸，1是哭脸，其他值无效
 @property (nonatomic, assign) PassKind_t enPassKind;
 
 @end
@@ -171,37 +175,62 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// @brief 支持checkmePro 同心管家
 @interface VTProSpc : VTProObject
-//通用
+/// @brief 通用
+// 功能模式 0:单测模式  1:组合模式
 @property (nonatomic, assign) u_char funcMode;
+// 功能选择 Bit0:心电 Bit1:血氧 Bit2:体温 Bit3:血压 Bit4:血糖  Bit5-Bit15:预留
 @property (nonatomic, assign) u_short selectFunc;
+// 标注
 @property (nonatomic, copy) NSString *note;
-//心电
+/// @brief 心电
+// 测量方式 0:预留  1:手手 2:手膝 3:I导  4:II导
 @property (nonatomic, assign) LeadKind_t enLeadKind;
+//脉率
 @property (nonatomic, assign) u_short hrValue;
+// qrs值
 @property (nonatomic, assign) u_short qrsValue;
+// st值
 @property (nonatomic, assign) u_short stValue;
+// 心电分析结果 parseECG_innerData_ecgResultDescribWith:
 @property (nonatomic, assign) NSString *ecgResult;
+// 笑脸/哭脸  0是笑脸，1是哭脸，其他值无效
 @property (nonatomic, assign) PassKind_t ecgEmoj;
+// QT值
 @property (nonatomic, assign) u_short qtValue;
+// QTc值
 @property (nonatomic, assign) u_short qtcValue;
+// 波形标记 0:无波形数据  1:有波形数据
 @property (nonatomic, assign) u_char waveMark;
-// 血氧
+/// @brief 血氧
+// 测量方式 0:内部  1:外部
 @property (nonatomic, assign) u_char measureMode;
+// 血氧
 @property (nonatomic, assign) u_char spo2Value;
+// 脉率
 @property (nonatomic, assign) u_short prValue;
+// 脉搏灌注强度
 @property (nonatomic, assign) double piValue;
+// 笑脸/哭脸  0是笑脸，1是哭脸，其他值无效
 @property (nonatomic, assign) PassKind_t spo2Emoj;
 // 体温
 @property (nonatomic, strong) VTProTm *temp;
-// 血压
+/// @brief 血压
+// 测量仪器 0 AirBP 1 小企鹅
 @property (nonatomic, assign) u_char measureFrom;
+// 收缩压
 @property (nonatomic, assign) u_short sysValue;
+// 平均压
 @property (nonatomic, assign) u_char avgValue;
+// 舒张压
 @property (nonatomic, assign) u_char diaValue;
+// 是否心率不起 0 正常 1 心率不齐
 @property (nonatomic, assign) u_char irregular;
+// 脉率
 @property (nonatomic, assign) u_short bpprValue;
-// 血糖
+/// @brief 血糖
+// 测量来源
 @property (nonatomic, assign) u_char bgFrom;
+// 存储值为血糖值*10， 单位mmol/L
 @property (nonatomic, assign) double sugerValue;
 
 
