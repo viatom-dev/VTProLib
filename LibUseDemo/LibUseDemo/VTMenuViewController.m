@@ -31,6 +31,22 @@
     NSArray <VTProXuser *>*_xuserList;
 }
 
+static NSString * const getInfo = @"Get info";
+static NSString * const syncTime = @"Sync time";
+static NSString * const readUserList = @"Read UserList";
+static NSString * const readDlc = @"Daily Check";
+static NSString * const readEcg = @"ECG Recorder";
+static NSString * const readOxi = @"Pulse Oximeter";
+static NSString * const readBP = @"Blood Pressure";
+static NSString * const readBG = @"Blood Glucose";
+static NSString * const readTM = @"Thermometer";
+static NSString * const readSlm = @"Sleep Monitor";
+static NSString * const readPed = @"Pedometer";
+static NSString * const readXuserList = @"Read XuserList";
+static NSString * const readQC = @"Quick check";
+static NSString * const readHC = @"HeartCheck";
+
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [VTProCommunicate sharedInstance].delegate = self;
@@ -42,7 +58,7 @@
     _state = VTProStateSyncData;
     [_tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     // dataType from 3 to 11
-    _funcArray = @[@"Get info",@"Sync time",@"Read UserList",@"Daily Check",@"ECG Recorder",@"Pulse Oximeter",@"Blood Pressure",@"Blood Glucose",@"Thermometer",@"Sleep Monitor",@"Pedometer", @"Read XuserList", @"Quick check"];
+    
     [VTProCommunicate sharedInstance].delegate = self;
     [[VTProCommunicate sharedInstance] beginPing];
 }
@@ -51,6 +67,17 @@
     [super viewWillDisappear:animated];
 }
 
+
+- (NSArray *)funcArray{
+    if (!_funcArray) {
+        if ([[VTProCommunicate sharedInstance].peripheral.name hasPrefix:@"Checkme"]) {
+            _funcArray = @[getInfo,syncTime,readUserList,readDlc,readEcg,readOxi,readBP,readBG,readTM,readSlm,readPed, readXuserList, readQC];
+        }else{
+            _funcArray = @[getInfo,syncTime,readHC];
+        }
+    }
+    return _funcArray;
+}
 
 
 - (IBAction)getInfo:(id)sender {
@@ -107,7 +134,7 @@
 #pragma mark -- tableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return _funcArray.count;
+    return self.funcArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -131,52 +158,47 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     _event = indexPath.section;
-    switch (indexPath.section) {
-        case 0:
-            [self getInfo:nil];
-            break;
-        case 1:
-            [self syncTime:nil];
-            break;
-        case 2:
-            [self readUserList:nil];
-            break;
-        case 3:
-        case 6:
-        case 7:
-        case 10:
-        {
-            if (_userList) {
-                [self performSegueWithIdentifier:@"gotoVTDataListViewController" sender:nil];
-            }else{
-                [self readUserList:nil];
-            }
-        }
-            break;
-        case 4:
-        case 5:
-        case 8:
-        case 9:
-        {
-            _userList = nil;
-            _xuserList = nil;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *title = cell.textLabel.text;
+    if ([title isEqual:getInfo]) {
+        [self getInfo:nil];
+    }
+    if ([title isEqual:syncTime]) {
+        [self syncTime:nil];
+    }
+    if ([title isEqual:readUserList]) {
+        [self readUserList:nil];
+    }
+    if ([title isEqual:readDlc] ||
+        [title isEqual:readBP] ||
+        [title isEqual:readBG] ||
+        [title isEqual:readPed]) {
+        if (_userList) {
             [self performSegueWithIdentifier:@"gotoVTDataListViewController" sender:nil];
+        }else{
+            [self readUserList:nil];
         }
-            break;
-        case 11:
+    }
+    if ([title isEqual:readEcg] ||
+        [title isEqual:readOxi] ||
+        [title isEqual:readTM] ||
+        [title isEqual:readSlm]) {
+        _userList = nil;
+        _xuserList = nil;
+        [self performSegueWithIdentifier:@"gotoVTDataListViewController" sender:nil];
+    }
+    if ([title isEqual:readXuserList]) {
+        [self readXuserList];
+    }
+    if ([title isEqual:readQC]) {
+        if (_xuserList) {
+            [self performSegueWithIdentifier:@"gotoVTDataListViewController" sender:nil];
+        }else{
             [self readXuserList];
-            break;
-        case 12:
-        {
-            if (_xuserList) {
-                [self performSegueWithIdentifier:@"gotoVTDataListViewController" sender:nil];
-            }else{
-                [self readXuserList];
-            }
         }
-            break;
-        default:
-            break;
+    }
+    if ([title isEqual:readHC]) {
+        [self performSegueWithIdentifier:@"gotoVTEXListViewController" sender:nil];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -252,8 +274,6 @@
          [_tableView setHidden:YES];
     }else{
 //        DLog(@"you can import data which at peripheral into your phone.");
-        
-        _funcArray = @[@"Get info",@"Sync time",@"Read UserList",@"Daily Check",@"ECG Recorder",@"Pulse Oximeter",@"Blood Pressure",@"Blood Glucose",@"Thermometer",@"Sleep Monitor",@"Pedometer", @"Read XuserList", @"Quick check"];
         [_miniDescLab setHidden:YES];
         [_tableView setHidden:NO];
     }

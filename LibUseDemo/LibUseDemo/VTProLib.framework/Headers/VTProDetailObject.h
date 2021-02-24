@@ -69,5 +69,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+#pragma pack (1)
+typedef struct{
+    u_short hrLen;
+    u_int dataLen;              //2-5    length of waveform
+    u_short hrResult;           //6-7    heart rate， unit is bpm
+    u_short stResult;           //8-9    ST, unit is mV
+    u_short qrsResult;          //10-11    QRS, unit is mV
+    u_short pvcsResult;         //12-13    PVCs
+    u_short qtcResult;          //14-15    QTc, unit is ms
+    u_int ecgAbnormalResult;    //16-19
+    u_char measuringMode;       //20
+    u_char filterMode;          //21   （1：wide   0：normal）
+    u_short qtResult;           //22-23    QT, unit is ms
+    u_char reserved[20];        //24-43  reserved
+}EXEcgFileHeader;
+
+#pragma pack ()
+
+typedef void(^EXECGDetailContent)(EXEcgFileHeader header, NSMutableArray * _Nullable ecgContent);
+
+@interface VTProEXHistoryDetail : VTProDetailObject
+
+
+@end
+
 
 NS_ASSUME_NONNULL_END

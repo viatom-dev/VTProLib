@@ -50,6 +50,16 @@
 - (void)readRSSI;
 ```
 
+- 从PulsebitEX中读取 HeartCheck 列表数据
+```objective-c
+- (void)beginReadHistoryList;
+```
+
+- 从PulsebitEX中读取HeartCheck条目对应的详细数据
+```objective-c
+- (void)beginReadHistoryDetail:(NSString *)recordTime;
+```
+
 - 所有返回列表数据参考类`<VTProLib/VTProObject.h>`
 
 - 所有返回详情数据参考类`<VTProLib/VTProDetailObject.h>`

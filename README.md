@@ -21,7 +21,7 @@ that `serviceDeployed:` returns YES,  NECESSAYR!
 
 2. Set `delegate` for `VTProCommunicate` any where you want get callback. At this step, you are able to communicate.
 
-- use `beginPing`, get the mode of Checkme Pro (Normal mode or Monitor mode. see: [VTTypesDef.h](https://github.com/viatom-dev/VTProLib/blob/master/LibUseDemo/LibUseDemo/VTProLib.framework/Headers/VTTypesDef.h))
+- use `beginPing`, get the mode of Checkme Pro (Normal mode or Monitor mode. see: [VTTypesDef.h](https://github.com/viatom-dev/VTProLib/blob/master/LibUseDemo/LibUseDemo/VTProLib.framework/Headers/VTTypesDef.h)
 
 ```objective-c
 - (void)beginPing;
@@ -52,7 +52,19 @@ that `serviceDeployed:` returns YES,  NECESSAYR!
 - (void)readRSSI;
 ```
 
+- Read HeartCheck List from PulsebitEX.
+```objective-c
+- (void)beginReadHistoryList;
+```
+
+- Read HeartCheck Detail data from PulsebitEX.
+```objective-c
+- (void)beginReadHistoryDetail:(NSString *)recordTime;
+```
+
 - measurements list object`<VTProLib/VTProObject.h>`
 - measurements detail object`<VTProLib/VTProDetailObject.h>`
 - data analysis for all`<VTProLib/VTProFileParser.h>`
 - Mini-monitor data analysis`<VTProLib/VTProMiniObject.h>`
+
+

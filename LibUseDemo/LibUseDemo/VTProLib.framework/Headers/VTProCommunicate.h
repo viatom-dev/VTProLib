@@ -149,4 +149,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@interface VTProCommunicate (PulsebitEX)
+
+/// @brief Read HeartCheck List from PulsebitEX.  callback "readCompleteWithData:" & "postCurrentReadProgress:"
+- (void)beginReadHistoryList;
+
+/// @brief Read HeartCheck Detail data from PulsebitEX. callback "readCompleteWithData:" & "postCurrentReadProgress:"
+/// @param recordTime recordTime of HeartCheck List
+- (void)beginReadHistoryDetail:(NSString *)recordTime;
+
+@end
+
 NS_ASSUME_NONNULL_END

@@ -24,7 +24,8 @@
         self.rawPeripheral = peripheral;
         if (peripheral.name == nil ||
             peripheral.name.length == 0 ||
-            ![peripheral.name hasPrefix:@"Checkme"]) {
+            (![peripheral.name hasPrefix:@"Checkme"] &&
+            ![peripheral.name hasPrefix:@"Pulsebit"])) {
             return nil;
         }
     }

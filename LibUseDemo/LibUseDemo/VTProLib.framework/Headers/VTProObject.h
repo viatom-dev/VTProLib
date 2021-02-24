@@ -172,6 +172,41 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface VTProEXHistory : VTProObject
+
+//用户(1是A用户，2是B用户，别的值为无用户)
+// User userID 1: user A  2: user B
+
+/// @brief RecordTime .  yyyyMMddHHmmss
+@property (nonatomic, copy) NSString *recordTime;
+
+/// @brief Heart rate .
+@property (nonatomic, assign) u_short heartRate;
+
+/// @brief The result map to emoji :    0 - smile    1 - cry     2 - null
+@property (nonatomic, assign) PassKind_t hrEmoji;
+
+/// @brief SpO2
+@property (nonatomic, assign) u_char spo2;
+
+@property (nonatomic, assign) PassKind_t spo2Emoji;
+
+/// @brief PI
+@property (nonatomic, assign) u_char pi;
+
+/// @brief Pulse rate
+@property (nonatomic, assign) u_char pr;
+
+//标志位/舒张压（若为0x00则表示第14字节是百分百，是0xFF，第14字节表示BP为无效值，否则表示舒张压第16字节为收缩压）
+/// @brief Flag  (If it is 0x00, it means that the 14th byte is 100%, which is 0xFF, and the 14th byte means that BP is an invalid value, otherwise it means that the 16th byte of diastolic blood pressure is systolic blood pressure)
+@property (nonatomic, assign) u_char bpFlag;
+
+//yyyymmddhhmmss文件-ECG
+/// @brief ECG Detail data.
+@property (nonatomic, copy) NSData *ecgData;
+
+@end
+
 
 /// @brief 支持checkmePro 同心管家
 @interface VTProSpc : VTProObject
@@ -185,7 +220,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief 心电
 // 测量方式 0:预留  1:手手 2:手膝 3:I导  4:II导
 @property (nonatomic, assign) LeadKind_t enLeadKind;
-//脉率
+// 脉率
 @property (nonatomic, assign) u_short hrValue;
 // qrs值
 @property (nonatomic, assign) u_short qrsValue;

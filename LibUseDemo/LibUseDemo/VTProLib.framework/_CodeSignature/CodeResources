@@ -6,15 +6,15 @@
 	<dict>
 		<key>Headers/VTProCommunicate.h</key>
 		<data>
-		jChCDPOUTnJ+E8UUJ3BAykdwML4=
+		g6eACUdUGSWAZJ0ahkuBfjvtR5w=
 		</data>
 		<key>Headers/VTProDetailObject.h</key>
 		<data>
-		L/c0aEllfYujf059Neh0+XEZ/ec=
+		ehb0BjP4Jt6d4AszaFVps3IV2Gs=
 		</data>
 		<key>Headers/VTProFileParser.h</key>
 		<data>
-		O85uwsO4mcS6TEjkB7Ri2fo25FQ=
+		JKBPbbau9nc3ukA2wymIVf+mKeg=
 		</data>
 		<key>Headers/VTProInfo.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/VTProObject.h</key>
 		<data>
-		xuh68YFtV1wxkQmkpIPTcuWt1gg=
+		fREx4gOAJmbgd6A+l335AX+6Bmk=
 		</data>
 		<key>Headers/VTProUser.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/VTTypesDef.h</key>
 		<data>
-		y2VAENcbTQiwxnEySMlow2nBieI=
+		ay+/qi97jUG6DAtzuiAyo91zstc=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -55,33 +55,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jChCDPOUTnJ+E8UUJ3BAykdwML4=
+			g6eACUdUGSWAZJ0ahkuBfjvtR5w=
 			</data>
 			<key>hash2</key>
 			<data>
-			a58cswXWf+6S05GWdHyJd2/Gkac68fhJOy60TmYjfrI=
+			jeYfAvT+qNXopPclrymdPAcWm2yN/xrKM301PGPvuUE=
 			</data>
 		</dict>
 		<key>Headers/VTProDetailObject.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L/c0aEllfYujf059Neh0+XEZ/ec=
+			ehb0BjP4Jt6d4AszaFVps3IV2Gs=
 			</data>
 			<key>hash2</key>
 			<data>
-			wx90I9DXncyL9wocWZiGvNMRXXnw2f3/n2khf4HvvFI=
+			lYibwUMhxcMvmdunDZDrzI+fcFuI7Y/5zCNIM2MjW0M=
 			</data>
 		</dict>
 		<key>Headers/VTProFileParser.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			O85uwsO4mcS6TEjkB7Ri2fo25FQ=
+			JKBPbbau9nc3ukA2wymIVf+mKeg=
 			</data>
 			<key>hash2</key>
 			<data>
-			c/C02QP1LdwupDqFhc51gRkLnmFI1olEwVD3lQ7ahHA=
+			9/wVJPfQI/MjBfeVh+VfMDALW8vSw6CkgYP8JpHQlFA=
 			</data>
 		</dict>
 		<key>Headers/VTProInfo.h</key>
@@ -121,11 +121,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xuh68YFtV1wxkQmkpIPTcuWt1gg=
+			fREx4gOAJmbgd6A+l335AX+6Bmk=
 			</data>
 			<key>hash2</key>
 			<data>
-			C5OM0uaQw+0m42bEZKyeFBMA+lWgRfbcnQnZ1rALCes=
+			o1kUJ9V4XpaG9k3NQbJanNoTQZfogqsIwPBgLfb29Lc=
 			</data>
 		</dict>
 		<key>Headers/VTProUser.h</key>
@@ -143,11 +143,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			y2VAENcbTQiwxnEySMlow2nBieI=
+			ay+/qi97jUG6DAtzuiAyo91zstc=
 			</data>
 			<key>hash2</key>
 			<data>
-			GYCCJmY8gAqXse6yszoxqt6087OPmvJZnxIbFuwIVLY=
+			4PYBPBfAoSAmG1EBlrbdD3hILesCOCbg80Msb2UHuzE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

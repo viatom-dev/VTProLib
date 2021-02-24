@@ -71,6 +71,8 @@ typedef enum : u_char {
     VTProFileTypePedList = 0x0B,
     VTProFileTypeXuserList = 0x0E,
     VTProFileTypeSpcList = 0x0F,
+    VTProFileTypeEXHistoryList = 0x11,
+    VTProFileTypeEXHistoryDetail = 0x12,
     /// @brief detail type
     VTProFileTypeEcgDetail = 0x07,
     VTProFileTypeEcgVoice = 0x08,

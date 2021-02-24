@@ -17,6 +17,7 @@
 		656DE87A249B8E980024E613 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 656DE874249B8E980024E613 /* SVProgressHUD.bundle */; };
 		656DE8AA249C6D4E0024E613 /* VTProLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656DE8A9249C6D4E0024E613 /* VTProLib.framework */; };
 		656DE8AD249CC9D50024E613 /* VTProLibBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 656DE8AC249CC9D50024E613 /* VTProLibBundle.bundle */; };
+		659802AD25E624A4001DE199 /* VTEXListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659802AC25E624A4001DE199 /* VTEXListViewController.m */; };
 		659E71542195664800B8070D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 659E71532195664800B8070D /* AppDelegate.m */; };
 		659E715A2195664800B8070D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 659E71582195664800B8070D /* Main.storyboard */; };
 		659E715C2195664900B8070D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 659E715B2195664900B8070D /* Assets.xcassets */; };
@@ -47,6 +48,8 @@
 		656DE875249B8E980024E613 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
 		656DE8A9249C6D4E0024E613 /* VTProLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VTProLib.framework; sourceTree = "<group>"; };
 		656DE8AC249CC9D50024E613 /* VTProLibBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = VTProLibBundle.bundle; sourceTree = "<group>"; };
+		659802AB25E624A4001DE199 /* VTEXListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VTEXListViewController.h; sourceTree = "<group>"; };
+		659802AC25E624A4001DE199 /* VTEXListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VTEXListViewController.m; sourceTree = "<group>"; };
 		659E714F2195664800B8070D /* LibUseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibUseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		659E71522195664800B8070D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		659E71532195664800B8070D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 				6B36CED72496789300B4E869 /* VTUserListViewController.m */,
 				656DE868249B80B60024E613 /* VTDataListViewController.h */,
 				656DE869249B80B60024E613 /* VTDataListViewController.m */,
+				659802AB25E624A4001DE199 /* VTEXListViewController.h */,
+				659802AC25E624A4001DE199 /* VTEXListViewController.m */,
 				659E718821956B0B00B8070D /* ConnectViewController.h */,
 				659E718721956B0B00B8070D /* ConnectViewController.m */,
 				656DE8A9249C6D4E0024E613 /* VTProLib.framework */,
@@ -234,6 +239,7 @@
 				656DE878249B8E980024E613 /* SVProgressHUD.m in Sources */,
 				6B36CED52496787D00B4E869 /* VTInfoViewController.m in Sources */,
 				659E71622195664900B8070D /* main.m in Sources */,
+				659802AD25E624A4001DE199 /* VTEXListViewController.m in Sources */,
 				6504C42C24AA0479005CE0CF /* VTDevice.m in Sources */,
 				6504C42B24AA0479005CE0CF /* VTBLEUtils.m in Sources */,
 				656DE86A249B80B60024E613 /* VTDataListViewController.m in Sources */,
@@ -397,7 +403,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LibUseDemo/SDK",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.viatom.LibUseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -424,7 +430,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LibUseDemo/SDK",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.viatom.LibUseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

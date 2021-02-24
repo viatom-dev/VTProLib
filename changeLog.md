@@ -1,11 +1,16 @@
-# 2020/11/12
+## v1.3.0
+ 1. Add support for PulsebitEX.
+ 
+ ## v1.3.0
+ 1. 增加对PulsebitEX 的支持
+
 ## v1.2.0
   1. 增加对国内版本的支持
-  
+
+# 2020/11/12
 ## v1.2.0
   1. update
-
-
+  
 ## v1.1.1
   1. 增加AppIcon
 

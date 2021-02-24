@@ -153,9 +153,21 @@
 + (NSString *)parseECG_innerData_ecgResultDescribWith:(NSString *)ecgResultDescrib;
 
 
+@end
+
+@interface VTProFileParser (HouseKeeper)
+
 /// @brief 支持checkmePro 同心管家
 + (NSArray <VTProXuser *>*)parseXuserList_WithFileData:(NSData *)data;
 + (NSArray <VTProSpc *>*)parseRecList_WithFileData:(NSData *)data;
+
+@end
+
+@interface VTProFileParser (PulsebitEX)
+
++ (NSArray <VTProEXHistory *>*)parseHeartCheckList:(NSData *)data;
+
++ (void)parseECGDetailWithFileData:(NSData *)data callBack:(EXECGDetailContent)content;
 
 
 @end
