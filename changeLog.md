@@ -1,6 +1,19 @@
+# 2021/04/09
+
+## v1.4.0
+
+​		1. 在菜单中，根据设备信息显示不同的列表。
+
+## v1.4.0
+
+​		1. A different list was shown in Menu according to device information.
+
+#  
+
 ## v1.3.0
+
  1. Add support for PulsebitEX.
- 
+
  ## v1.3.0
  1. 增加对PulsebitEX 的支持
 
@@ -10,7 +23,7 @@
 # 2020/11/12
 ## v1.2.0
   1. update
-  
+
 ## v1.1.1
   1. 增加AppIcon
 

@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     
     if (_proInfo == nil) {
-        _infoLabel.text = @"Get device infomation error";
+        _infoLabel.text = @"Get device information error";
         return;
     }
     _infoLabel.text = [_proInfo description];
