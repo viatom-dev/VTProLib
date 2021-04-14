@@ -5,7 +5,7 @@
     ##### [变更日志](https://github.com/viatom-dev/VTProLib/blob/master/changeLog.md)
 * ##### 1.2 功能描述
    VTProLib是为源动健康Checkme开发的iOS版本的SDK。主要功能大致分为通信和解析两部分。
-   &nbsp;&nbsp; 1. 通信功能。 用于使用Bluetooth的iOS设备与作为外设的checkme pro进行通信，可以从中获取各类数据以及minimonitor模式下的实时数据
+   &nbsp;&nbsp; 1. 通信功能。 用于使用Bluetooth的iOS设备与作为外设的checkme pro进行通信，可以从中获取各类存储数据以及minimonitor模式下的实时数据
    &nbsp;&nbsp; 2. 解析功能。 用于解析通信获取后的各类数据，并返回相应的模型供其他开发者使用。
 
 #### 2. 环境
