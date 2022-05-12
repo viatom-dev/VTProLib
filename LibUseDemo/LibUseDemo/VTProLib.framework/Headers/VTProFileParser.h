@@ -167,7 +167,66 @@
 
 + (NSArray <VTProEXHistory *>*)parseHeartCheckList:(NSData *)data;
 
-+ (void)parseECGDetailWithFileData:(NSData *)data callBack:(EXECGDetailContent)content;
++(void)parseECGDetailWithFileData:(NSData *)data callBack:(EXECGDetailContent)content;
 
+
+@end
+
+#pragma pack (1)
+typedef struct PodDeviceRunParameters
+{
+    u_short PR;                 //当前主机实时脉率
+    u_short oxi;
+    u_char PI;
+    u_short temp;               //当前主机实时温度
+    u_char sys_flag;            // 0-1 血氧抬头状态（0 未插入电缆 1 插入电缆未插入手指 2 已插入手指）  2 体温探头是否插入（0 未插入 1插入） 3 是否有保存文件的动作（0 没有 1有）
+    u_char bat_stat;            //电池状态 0:正常使用 1:充电中 2:充满 3:低电量
+    u_char percent;             //电池电量 e.g.    100:100%
+    u_char run_status;          //运行状态 0空闲，1测量准备（不画波形）2测量中
+    u_char reserved[9];         //预留
+}PodDeviceRunParameters;
+
+typedef struct PodRealTimeWaveform{
+    u_short sampling_num;        //采样点数
+    short wave_data[300];        //原始数据
+}PodRealTimeWaveform;
+
+typedef struct PodRealTimeData
+{
+    PodDeviceRunParameters run_para;
+    PodRealTimeWaveform waveform;
+}PodRealTimeData;
+
+typedef struct
+{
+    u_char spo2ProbeStatus;
+    u_char tempProbeStatus;
+    u_char reserved;
+}sys_flagBit;
+
+typedef struct
+{
+    u_short year;
+    u_char month;
+    u_char day;
+    u_char hour;
+    u_char minute;
+    u_char second;
+    u_char lead;
+    u_char spO2;
+    u_char pr;
+    u_char pi;
+    u_short temperature;
+    u_char reserved[4];
+}PodHistoryData;
+
+#pragma pack ()
+
+@interface VTProFileParser (CheckmePod)
+
+
++ (PodRealTimeData)parsePodRealDataWithResponse:(NSData * _Nonnull)response;
+
++ (void)parsePodHistoryListWithResponse:(NSData * _Nonnull)response callback:(void(^_Nullable)(PodHistoryData * _Nullable list, NSInteger count))callback;
 
 @end

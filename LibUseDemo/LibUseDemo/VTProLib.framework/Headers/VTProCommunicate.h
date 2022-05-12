@@ -57,6 +57,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)realTimeCallBackWithObject:(VTProMiniObject *)object;
 
 
+/// @brief Pod real
+/// @param realData parsed by func -  'parsePodRealDataWithResponse'
+- (void)pod_realDataWithData:(NSData *)realData;
+
+
 /// @brief state of peripheral
 /// @param state view enum "VTProState" 
 - (void)currentStateOfPeripheral:(VTProState)state;
@@ -160,5 +165,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)beginReadHistoryDetail:(NSString *)recordTime;
 
 @end
+
+
+@interface VTProCommunicate (CheckmePod)
+
+- (void)beginReadHistory;
+
+- (void)beginReadRealData;
+
+@end
+
 
 NS_ASSUME_NONNULL_END

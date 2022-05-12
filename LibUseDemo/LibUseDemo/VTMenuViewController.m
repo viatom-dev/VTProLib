@@ -84,7 +84,8 @@ static NSString * const readPed = @"Pedometer";
 static NSString *  readXuserList = @"Read XuserList";
 static NSString *  readQC = @"Quick check";    // 一键体检
 static NSString * const readHC = @"HeartCheck"; // --
-
+static NSString * const readPodList = @"Read history";
+static NSString * const readRealtime = @"Read realtime-data";
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -151,16 +152,20 @@ static NSString * const readHC = @"HeartCheck"; // --
     NameEventModel *readXuserListModel = [[NameEventModel alloc] initWithTitle:readXuserList event:11];
     NameEventModel *readQCModel = [[NameEventModel alloc] initWithTitle:readQC event:12];
     NameEventModel *readHCModel = [[NameEventModel alloc] initWithTitle:readHC event:13];
+    NameEventModel *readHistory = [[NameEventModel alloc] initWithTitle:readPodList event:14];
+    NameEventModel *readReal = [[NameEventModel alloc] initWithTitle:readRealtime event:15];
     
-    
-    if ([[VTProCommunicate sharedInstance].peripheral.name hasPrefix:@"Checkme"]) {
+    NSString *peripheralName = [VTProCommunicate sharedInstance].peripheral.name;
+    if ([peripheralName hasPrefix:@"Checkme Pod "]) {
+        _funcArray = @[readHistory, readReal];
+    } else if ([peripheralName hasPrefix:@"Checkme"]) {
         if (_isDomesticCheckme) { // 国内版
             _funcArray = @[getInfoModel, syncTimeModel, readEcgModel, readOxiModel, readBPModel, readBGModel, readTMModel, readQCModel, readXuserListModel];
             return;
         }
         
         _funcArray = @[getInfoModel, syncTimeModel, readUserListModel, readDlcModel, readEcgModel, readOxiModel, readBPModel, readBGModel, readTMModel, readSlmModel, readPedModel];
-    }else{
+    } else {
         _funcArray = @[getInfoModel, syncTimeModel, readHCModel];
     }
 }
@@ -193,6 +198,18 @@ static NSString * const readHC = @"HeartCheck"; // --
     }
     [[VTProCommunicate sharedInstance] beginReadFileListWithUser:nil fileType:VTProFileTypeXuserList];
 }
+
+#pragma mark -- checkme pod
+
+- (void)pod_readHistoryData {
+    [[VTProCommunicate sharedInstance] beginReadHistory];
+}
+
+- (void)pod_readRealtimeData {
+    [[VTProCommunicate sharedInstance] beginReadRealData];
+}
+
+#pragma mark -- segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"gotoVTInfoViewController"]) {
@@ -288,6 +305,12 @@ static NSString * const readHC = @"HeartCheck"; // --
     if ([title isEqual:readHC]) {
         [self performSegueWithIdentifier:@"gotoVTEXListViewController" sender:nil];
     }
+    if ([title isEqual:readPodList]) {
+        [self pod_readHistoryData];
+    }
+    if ([title isEqual:readRealtime]) {
+        [self pod_readRealtimeData];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -361,6 +384,15 @@ static NSString * const readHC = @"HeartCheck"; // --
             }
         }
     }
+    
+    if (fileData.fileType == VTProFileTypePodList) {
+        [VTProFileParser parsePodHistoryListWithResponse:fileData.fileData callback:^(PodHistoryData * _Nullable list, NSInteger count) {
+            for (int i = 0; i < count; i ++) {
+                PodHistoryData history = list[i];
+                DLog(@"time : %04d%02d%02d%02d%02d%02d\nspO2 : %d", history.year, history.month, history.day, history.hour, history.minute, history.second, history.spO2);
+            }
+        }];
+    }
 }
 
 
@@ -383,6 +415,13 @@ static NSString * const readHC = @"HeartCheck"; // --
     }
     _state = state;
 }
+
+
+- (void)pod_realDataWithData:(NSData *)realData {
+    PodRealTimeData realtimeData = [VTProFileParser parsePodRealDataWithResponse:realData];
+    DLog(@"checkme pod realtime-data");
+}
+
 
 @end
 

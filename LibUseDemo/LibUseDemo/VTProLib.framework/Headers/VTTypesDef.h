@@ -54,6 +54,7 @@ typedef enum : NSUInteger {
     VTProCmdTypePing,
     VTProCmdTypeGetInfo,
     VTProCmdTypeSyncTime,
+    VTProCmdTypeReadRealData, ///< only support CheckmePod
 } VTProCmdType;
 
 
@@ -80,6 +81,7 @@ typedef enum : u_char {
     /// @brief update pkg
     VTProFileTypeLangPkg = 0x0C,
     VTProFileTypeAppPkg = 0x0D,
+    VTProFileTypePodList = 0x13,
 } VTProFileType;  /// @brief file type of request/write data to peripheral
 
 typedef enum : NSUInteger {

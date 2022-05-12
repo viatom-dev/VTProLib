@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/VTProCommunicate.h</key>
 		<data>
-		g6eACUdUGSWAZJ0ahkuBfjvtR5w=
+		U5qSgw7aU4UG2iP2LKPPJPI7YfA=
 		</data>
 		<key>Headers/VTProDetailObject.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Headers/VTProFileParser.h</key>
 		<data>
-		JKBPbbau9nc3ukA2wymIVf+mKeg=
+		hdykSn4aZzZIhM17O9fba0D4be8=
 		</data>
 		<key>Headers/VTProInfo.h</key>
 		<data>
@@ -38,11 +38,11 @@
 		</data>
 		<key>Headers/VTTypesDef.h</key>
 		<data>
-		ay+/qi97jUG6DAtzuiAyo91zstc=
+		dwJdusS8xY/Sl4hLem7ciUjUVVU=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bh+cLjlfIREKiub8fYAp8gaOrvU=
+		eI7a8VNdXe8cCaVY5gn7g7wzGDQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -55,11 +55,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			g6eACUdUGSWAZJ0ahkuBfjvtR5w=
+			U5qSgw7aU4UG2iP2LKPPJPI7YfA=
 			</data>
 			<key>hash2</key>
 			<data>
-			jeYfAvT+qNXopPclrymdPAcWm2yN/xrKM301PGPvuUE=
+			pgsTkH2lMMiSPVNnDv3sy3c1Sfl1SxgJZNOspmgItA0=
 			</data>
 		</dict>
 		<key>Headers/VTProDetailObject.h</key>
@@ -77,11 +77,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JKBPbbau9nc3ukA2wymIVf+mKeg=
+			hdykSn4aZzZIhM17O9fba0D4be8=
 			</data>
 			<key>hash2</key>
 			<data>
-			9/wVJPfQI/MjBfeVh+VfMDALW8vSw6CkgYP8JpHQlFA=
+			t+FSF7lqWJ3tAe9HTYi8exlJdlbcY1HWUEprqtghhWo=
 			</data>
 		</dict>
 		<key>Headers/VTProInfo.h</key>
@@ -143,11 +143,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ay+/qi97jUG6DAtzuiAyo91zstc=
+			dwJdusS8xY/Sl4hLem7ciUjUVVU=
 			</data>
 			<key>hash2</key>
 			<data>
-			4PYBPBfAoSAmG1EBlrbdD3hILesCOCbg80Msb2UHuzE=
+			i9tphFJZfgZNDXH/w8j+YikOt8pIx72QOxwJlxkc8Fs=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

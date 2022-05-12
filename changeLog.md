@@ -1,12 +1,16 @@
 # 2021/04/09
 
+## v1.5.0
+1. Add support for Checkme Pod
+
+## v1.5.0
+1. 增加对CheckmePod的支持
+
 ## v1.4.0
-
-​		1. 在菜单中，根据设备信息显示不同的列表。
+1. A different list was shown in Menu according to device information.
 
 ## v1.4.0
-
-​		1. A different list was shown in Menu according to device information.
+1. 在菜单中，根据设备信息显示不同的列表。
 
 #  
 
