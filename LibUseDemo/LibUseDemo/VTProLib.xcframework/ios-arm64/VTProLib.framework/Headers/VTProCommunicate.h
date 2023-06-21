@@ -17,6 +17,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol VTProCurrentModeDelegate <NSObject>
+
+@optional
+/// @brief state of peripheral
+/// @param state view enum "VTProState"
+- (void)currentStateOfPeripheral:(VTProState)state;
+
+@end
+
 
 @protocol VTProCommunicateDelegate <NSObject>
 
@@ -25,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief Common command send to peripheral,   callback
 /// @param cmdType command for /VTProCmdTypeSyncTime/  VTProCmdTypePing/VTProCmdTypeStartWrite/VTProCmdTypeWriting/VTProCmdTypeEndWrite/
 /// @param result view the enum VTProCommonResult
-- (void)commonResponse:(VTProCmdType)cmdType andResult:(VTProCommonResult)result;
+- (void)commonResponse:(VTProCmd)cmdType andResult:(VTProCommonResult)result;
 
 /// @brief Send the current progress of reading
 /// @param progress progress value
@@ -62,11 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)pod_realDataWithData:(NSData *)realData;
 
 
-/// @brief state of peripheral
-/// @param state view enum "VTProState" 
-- (void)currentStateOfPeripheral:(VTProState)state;
-
-
 /// @brief read current peripheral's rssi
 /// @param RSSI rssi
 - (void)updatePeripheralRSSI:(NSNumber *)RSSI;
@@ -85,10 +89,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief This peripheral is currently connected. Need to be set after connection
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
+@property (nonatomic, assign) VTProState state;
+
 /// @brief current file been read or written
 @property (nonatomic, strong) VTProFileToRead *curReadFile;
 
 @property (nonatomic, assign) id<VTProCommunicateDelegate> _Nullable delegate;
+
+@property (nonatomic, assign) id<VTProCurrentModeDelegate> _Nullable modeDelegate;
 
 + (VTProCommunicate *)sharedInstance;
 
@@ -96,10 +104,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark -- monitor peripheral RSSI
 - (void)readRSSI;
 
-#pragma mark -- request data from peripheral
-
+#pragma mark -- be used confirm current mode of peripheral
 /// @brief Start ping with peripheral.  callback  "currentStateOfPeripheral:"
 - (void)beginPing;
+
+#pragma mark -- request data from peripheral
 
 /// @brief Get information of peripheral. callback "getInfoWithResultData:"
 - (void)beginGetInfo;

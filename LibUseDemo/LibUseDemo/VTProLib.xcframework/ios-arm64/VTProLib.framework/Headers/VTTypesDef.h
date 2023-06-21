@@ -18,8 +18,9 @@
 
 /// @brief The pro current state .
 typedef enum : NSUInteger {
-    VTProStateMinimoniter,
-    VTProStateSyncData,
+    VTProStateUnknown,          // error
+    VTProStateMinimoniter,      // moniter
+    VTProStateSyncData,         // sync
 } VTProState;
 
 
@@ -43,20 +44,24 @@ typedef enum{
 }FilterKind_t;
 
 
-typedef enum : NSUInteger {
-    VTProCmdTypeNone,
-    VTProCmdTypeStartWrite,
-    VTProCmdTypeWriting,
-    VTProCmdTypeEndWrite,
-    VTProCmdTypeStartRead,
-    VTProCmdTypeReading,
-    VTProCmdTypeEndRead,
-    VTProCmdTypePing,
-    VTProCmdTypeGetInfo,
-    VTProCmdTypeSyncTime,
-    VTProCmdTypeReadRealData, ///< only support CheckmePod
-} VTProCmdType;
-
+typedef enum : u_char {
+    VTProCmdStartWrite = 0x0,
+    VTProCmdWriteContent = 0x01,
+    VTProCmdEndWrite = 0x02,
+    VTProCmdStartRead = 0x03,
+    VTProCmdReadContent = 0x04,
+    VTProCmdEndRead = 0x05,
+    VTProCmdLangStartUpdate = 0x0A,
+    VTProCmdLangUpdateData = 0x0B,
+    VTProCmdLangEndUpdate = 0x0C,
+    VTProCmdAppStartUpdate = 0x0D,
+    VTProCmdAppUpdateData = 0x0E,
+    VTProCmdAppEndUpdate = 0x0F,
+    VTProCmdGetInfo = 0x14,
+    VTProCmdPing = 0x15,
+    VTProCmdSyncTime = 0x16,
+    VTProCmdReadRealData = 0x20,  ///< only support for CheckmePod
+} VTProCmd;
 
 typedef enum : u_char {
     VTProFileTypeNone = 0x00,

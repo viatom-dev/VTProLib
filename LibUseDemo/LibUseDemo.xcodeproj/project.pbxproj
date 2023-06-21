@@ -3,19 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6504C42B24AA0479005CE0CF /* VTBLEUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504C42724AA0479005CE0CF /* VTBLEUtils.m */; };
 		6504C42C24AA0479005CE0CF /* VTDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6504C42824AA0479005CE0CF /* VTDevice.m */; };
+		650F67A52A42CA8300B3B51C /* VTProLib.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 650F67A42A42CA8300B3B51C /* VTProLib.xcframework */; };
 		656DE86A249B80B60024E613 /* VTDataListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 656DE869249B80B60024E613 /* VTDataListViewController.m */; };
 		656DE876249B8E980024E613 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 656DE86C249B8E980024E613 /* SVRadialGradientLayer.m */; };
 		656DE877249B8E980024E613 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 656DE86F249B8E980024E613 /* SVProgressAnimatedView.m */; };
 		656DE878249B8E980024E613 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 656DE872249B8E980024E613 /* SVProgressHUD.m */; };
 		656DE879249B8E980024E613 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 656DE873249B8E980024E613 /* SVIndefiniteAnimatedView.m */; };
 		656DE87A249B8E980024E613 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 656DE874249B8E980024E613 /* SVProgressHUD.bundle */; };
-		656DE8AA249C6D4E0024E613 /* VTProLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 656DE8A9249C6D4E0024E613 /* VTProLib.framework */; };
 		656DE8AD249CC9D50024E613 /* VTProLibBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 656DE8AC249CC9D50024E613 /* VTProLibBundle.bundle */; };
 		659802AD25E624A4001DE199 /* VTEXListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 659802AC25E624A4001DE199 /* VTEXListViewController.m */; };
 		659E71542195664800B8070D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 659E71532195664800B8070D /* AppDelegate.m */; };
@@ -34,6 +34,7 @@
 		6504C42824AA0479005CE0CF /* VTDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTDevice.m; sourceTree = "<group>"; };
 		6504C42924AA0479005CE0CF /* VTBLEUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTBLEUtils.h; sourceTree = "<group>"; };
 		6504C42A24AA0479005CE0CF /* VTDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTDevice.h; sourceTree = "<group>"; };
+		650F67A42A42CA8300B3B51C /* VTProLib.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = VTProLib.xcframework; sourceTree = "<group>"; };
 		656DE868249B80B60024E613 /* VTDataListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VTDataListViewController.h; sourceTree = "<group>"; };
 		656DE869249B80B60024E613 /* VTDataListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VTDataListViewController.m; sourceTree = "<group>"; };
 		656DE86C249B8E980024E613 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		656DE873249B8E980024E613 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
 		656DE874249B8E980024E613 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		656DE875249B8E980024E613 /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
-		656DE8A9249C6D4E0024E613 /* VTProLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VTProLib.framework; sourceTree = "<group>"; };
 		656DE8AC249CC9D50024E613 /* VTProLibBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = VTProLibBundle.bundle; sourceTree = "<group>"; };
 		659802AB25E624A4001DE199 /* VTEXListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VTEXListViewController.h; sourceTree = "<group>"; };
 		659802AC25E624A4001DE199 /* VTEXListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VTEXListViewController.m; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				656DE8AA249C6D4E0024E613 /* VTProLib.framework in Frameworks */,
+				650F67A52A42CA8300B3B51C /* VTProLib.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +151,7 @@
 				659802AC25E624A4001DE199 /* VTEXListViewController.m */,
 				659E718821956B0B00B8070D /* ConnectViewController.h */,
 				659E718721956B0B00B8070D /* ConnectViewController.m */,
-				656DE8A9249C6D4E0024E613 /* VTProLib.framework */,
+				650F67A42A42CA8300B3B51C /* VTProLib.xcframework */,
 				656DE86B249B8E980024E613 /* SVProgressHUD */,
 				659E71582195664800B8070D /* Main.storyboard */,
 				659E715B2195664900B8070D /* Assets.xcassets */,
@@ -403,7 +403,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LibUseDemo/SDK",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.viatom.LibUseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -430,7 +430,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LibUseDemo/SDK",
 				);
-				MARKETING_VERSION = 1.5.0;
+				MARKETING_VERSION = 1.6.0;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.com.viatom.LibUseDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

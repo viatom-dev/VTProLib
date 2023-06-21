@@ -47,7 +47,7 @@
 // ----------------------------------------------------
 
 
-@interface VTMenuViewController ()<UITableViewDelegate,UITableViewDataSource,VTProCommunicateDelegate>
+@interface VTMenuViewController ()<UITableViewDelegate,UITableViewDataSource,VTProCommunicateDelegate,VTProCurrentModeDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *miniDescLab;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -103,12 +103,13 @@ static NSString * const readRealtime = @"Read realtime-data";
     }
     // dataType from 3 to 11
     
-    [VTProCommunicate sharedInstance].delegate = self;
+    [VTProCommunicate sharedInstance].modeDelegate = self;
     [[VTProCommunicate sharedInstance] beginPing];
     
     _isInitialRequest = YES;
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [VTProCommunicate sharedInstance].delegate = self;
         [[VTProCommunicate sharedInstance] beginGetInfo];
     });
 }
@@ -338,8 +339,8 @@ static NSString * const readRealtime = @"Read realtime-data";
 }
 
 
-- (void)commonResponse:(VTProCmdType)cmdType andResult:(VTProCommonResult)result{
-    if (cmdType == VTProCmdTypeSyncTime) {
+- (void)commonResponse:(VTProCmd)cmdType andResult:(VTProCommonResult)result{
+    if (cmdType == VTProCmdSyncTime) {
         NSString *titleStr = @"Sync time success";
         NSString *actionStr = @"OK";
         if (_isDomesticCheckme) {
