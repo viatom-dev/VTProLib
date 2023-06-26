@@ -140,7 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief this is a class to describe the completeed current loading or writing file
 @interface VTProFileToRead : NSObject
 
-@property (nonatomic, assign) NSString *fileName;
+@property (nonatomic, copy) NSString *fileName;
 
 @property (nonatomic, assign) VTProFileType fileType;
 
