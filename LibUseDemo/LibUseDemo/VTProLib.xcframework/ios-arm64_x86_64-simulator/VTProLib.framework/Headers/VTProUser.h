@@ -11,8 +11,9 @@
 
 typedef enum
 {
-    VTGender_FeMale,
-    VTGender_Male
+    VTGender_Male,
+    VTGender_FeMale
+    
 }VTGender_t;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @brief userID - Used to read files
 @property (nonatomic, assign) u_char userID;
 
-/// @brief gender - 0: female  1: male
+/// @brief gender - 1: female  0: male
 @property (nonatomic, assign) VTGender_t gender;
 
 /// @brief user's height
