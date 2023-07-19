@@ -98,6 +98,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) id<VTProCurrentModeDelegate> _Nullable modeDelegate;
 
+@property (nonatomic, assign, readonly) int deviceType;
+
+/// Before obtaining the file, it is necessary to obtain the device information first, otherwise errors may occur.
+@property (nonatomic, copy, readonly) NSString *fileVer;
+
 + (VTProCommunicate *)sharedInstance;
 
 

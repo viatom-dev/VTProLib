@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/VTProCommunicate.h</key>
 		<data>
-		wQpEeDwWuYVFwzbASt2YTryMDu0=
+		G09qIczMWram54PbSSyYqfhEzLY=
 		</data>
 		<key>Headers/VTProDetailObject.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		wF6hug6F2Z3loIWaor6zHu6KmC4=
+		yhIvnWnvjZJ6byaYnaARzp3glyU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -55,11 +55,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wQpEeDwWuYVFwzbASt2YTryMDu0=
+			G09qIczMWram54PbSSyYqfhEzLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			GKpTB0wvTK5r4zy2tBQq8UJKmKeE0hteE6PMC4r/eb8=
+			jqup8lZfc9j7S5Auj4FWyWyB5nJdTr3p6fxZLuoFvi4=
 			</data>
 		</dict>
 		<key>Headers/VTProDetailObject.h</key>
