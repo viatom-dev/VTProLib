@@ -24,6 +24,7 @@ FOUNDATION_EXPORT const unsigned char VTProLibVersionString[];
 #import <VTProLib/VTProInfo.h>
 #import <VTProLib/VTProUser.h>
 #import <VTProLib/VTTypesDef.h>
+#import <VTProLib/VTPublicFunction.h>
 
 
 
