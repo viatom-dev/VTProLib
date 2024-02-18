@@ -121,7 +121,7 @@
 
 #pragma mark -- sdk response
 
-- (void)readCompleteWithData:(VTProFileToRead *)fileData{
+- (void)pro_readCompleteWithData:(VTProFileToRead *)fileData{
     if(fileData.fileType == VTProFileTypeDlcList) {
         if(fileData.enLoadResult == VTProFileLoadResultSuccess){
             NSArray *arr = [VTProFileParser parseDlcList_WithFileData:fileData.fileData];
@@ -224,7 +224,7 @@
     }
 }
 
-- (void)postCurrentReadProgress:(double)progress{
+- (void)pro_postCurrentReadProgress:(double)progress{
     
     [SVProgressHUD showProgress:progress];
 }

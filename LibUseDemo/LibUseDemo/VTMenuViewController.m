@@ -318,7 +318,7 @@ static NSString * const readRealtime = @"Read realtime-data";
 
 #pragma mark  --  delegate
 
-- (void)getInfoWithResultData:(NSData *)infoData{
+- (void)pro_getInfoWithResultData:(NSData *)infoData{
     if (_isInitialRequest && infoData) {
         _isInitialRequest = NO;
         _info = [VTProFileParser parseProInfoWithData:infoData];
@@ -339,7 +339,7 @@ static NSString * const readRealtime = @"Read realtime-data";
 }
 
 
-- (void)commonResponse:(VTProCmd)cmdType andResult:(VTProCommonResult)result{
+- (void)pro_commonResponse:(VTProCmd)cmdType andResult:(VTProCommonResult)result{
     if (cmdType == VTProCmdSyncTime) {
         NSString *titleStr = @"Sync time success";
         NSString *actionStr = @"OK";
@@ -361,7 +361,7 @@ static NSString * const readRealtime = @"Read realtime-data";
 }
 
 
-- (void)readCompleteWithData:(VTProFileToRead *)fileData{
+- (void)pro_readCompleteWithData:(VTProFileToRead *)fileData{
     if (fileData.fileType == VTProFileTypeUserList) {
         if (fileData.enLoadResult == VTProFileLoadResultSuccess) {
             NSArray *userList = [VTProFileParser parseUserList_WithFileData:fileData.fileData];
@@ -397,14 +397,14 @@ static NSString * const readRealtime = @"Read realtime-data";
 }
 
 
-- (void)realTimeCallBackWithObject:(VTProMiniObject *)object{
+- (void)pro_realTimeCallBackWithObject:(VTProMiniObject *)object{
     if (_state == VTProStateMinimoniter) {
         _miniDescLab.text = [object description];
     }
 }
 
 
-- (void)currentStateOfPeripheral:(VTProState)state{
+- (void)pro_currentStateOfPeripheral:(VTProState)state{
     if (state == VTProStateMinimoniter) {
 //        DLog(@"Minimonitor mode. If you want to import data which at peripheral into your phone, please exit minimonitor mode, and click 'To mobile' button.");
          [_miniDescLab setHidden:NO];

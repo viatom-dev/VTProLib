@@ -31,7 +31,7 @@
 }
 
 #pragma mark --- Communicate delegate
-- (void)readCompleteWithData:(VTProFileToRead *)fileData{
+- (void)pro_readCompleteWithData:(VTProFileToRead *)fileData{
     if (fileData.fileType == VTProFileTypeEXHistoryList) {
         if (fileData.enLoadResult == VTProFileLoadResultSuccess) {
             NSArray *arr = [VTProFileParser parseHeartCheckList:fileData.fileData];
@@ -54,7 +54,7 @@
     }
 }
 
-- (void)postCurrentReadProgress:(double)progress{
+- (void)pro_postCurrentReadProgress:(double)progress{
     
     [SVProgressHUD showProgress:progress];
 }
